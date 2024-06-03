@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Room Escape game</title>
+    <link rel="stylesheet" href="./css/items.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas></canvas>
+
+        <!-- Items Container -->
+        <div id="items-container">
+            <div id="key1" class="item">Key 1</div>
+            <div id="key2" class="item">Key 2</div>
+        </div>
+    </div>
+
+    <!-- Music Button -->
+    <button id="music-button" onclick="toggleMusic()">🎵 Music</button>
+
+    <!-- Background music -->
+    <audio id="background-music" loop>
+        <source src="./bgm/bgm.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/util.js"></script>
+    <script src="./js/data/collision.js"></script>
+    <script src="./js/collisionblock.js"></script>
+    <script src="./js/Sprite.js"></script>
+    <script src="./js/Player.js"></script>
+    <script src="./js/checkkey.js"></script>
+    <script src="./js/listener.js"></script>
+    <script src="./js/bgm.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

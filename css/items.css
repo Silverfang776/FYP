@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#game-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+canvas {
+    flex: 1;
+    background-color: black;
+}
+
+#items-container {
+    width: 200px;
+    padding: 20px;
+    background-color: #34495e;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #2ecc71;
+    border-radius: 5px;
+    visibility: hidden;
+}
+
+.item.visible {
+    visibility: visible;
+}
+
+#music-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#music-button:hover {
+    background-color: #27ae60;
+}
