@@ -1,10 +1,9 @@
 window.addEventListener('keydown', (event) => {
     if (player.preventInput) return;
     switch (event.key) {
-        //jump key
         case 'w':
             if (player.velocity.y === 0)
-                player.velocity.y = -13;
+                player.velocity.y = -13.75;
             break;
 
         case 'a':
@@ -17,6 +16,8 @@ window.addEventListener('keydown', (event) => {
 
         case 'f':
             keys.f.pressed = true;
+
+            // Check for doors
             if (specificItemCollected) {
                 for (let i = 0; i < doors.length; i++) {
                     const door = doors[i];
@@ -31,6 +32,23 @@ window.addEventListener('keydown', (event) => {
                         door.play();
                         return;
                     }
+                }
+            }
+
+            // Check for objects
+            for (let i = 0; i < objects.length; i++) {
+                const object = objects[i];
+                if (player.hitbox.position.x + player.hitbox.width <= object.position.x + object.width &&
+                    player.hitbox.position.x + player.hitbox.width >= object.position.x &&
+                    player.hitbox.position.y + player.hitbox.height >= object.position.y &&
+                    player.hitbox.position.y <= object.position.y + object.height) {
+                    player.velocity.x = 0;
+                    player.velocity.y = 0;
+                    player.preventInput = true;
+                    player.switchSprite('interact', object); // Pass the object to the interact animation
+                    object.play();
+                    object.onInteract();
+                    return;
                 }
             }
             break;
