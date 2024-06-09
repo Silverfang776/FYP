@@ -58,3 +58,13 @@ canvas {
 #music-button:hover {
     background-color: #27ae60;
 }
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+
