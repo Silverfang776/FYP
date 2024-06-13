@@ -1,3 +1,5 @@
+/* Common Styles */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -8,10 +10,65 @@ body {
     align-items: flex-start;
 }
 
+#main-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./img/raining.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.menu-button:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#save-load-container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.save-load-button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.save-load-button:hover {
+    background-color: #27ae60;
+}
+
 #game-container {
     display: flex;
     width: 100%;
     height: 100vh;
+    position: absolute;
 }
 
 canvas {
@@ -20,21 +77,34 @@ canvas {
 }
 
 #items-container {
-    width: 200px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 240px; /* Adjusted width for two columns */
     padding: 20px;
     background-color: #34495e;
     color: #ecf0f1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    box-sizing: border-box; /* Ensure padding and border are included in the width and height */
+    overflow: auto; /* Add scroll if items overflow */
 }
 
 .item {
-    margin: 10px 0;
-    padding: 10px;
+    margin: 1px;
+    padding: 6px;
     background-color: #2ecc71;
-    border-radius: 5px;
+    border-radius: 10px;
     visibility: hidden;
+    position: relative;
+    box-sizing: border-box; /* Ensure padding and border are included in the width and height */
+    width: 100px; /* Adjusted width for two columns */
+    text-align: center;
+}
+
+
+#interaction-prompt {
+    position: absolute;
 }
 
 .item.visible {
@@ -44,7 +114,7 @@ canvas {
 #music-button {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 20%;
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
@@ -67,4 +137,202 @@ canvas {
     display: block;
 }
 
+/* Common Puzzle Container Styles */
+.puzzle-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: none; /* Hidden by default, shown when the puzzle is active */
+    border: 2px solid #ccc;
+    z-index: 1000;
+}
 
+/* Common Puzzle Styles */
+.puzzle {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* Puzzle 1 Specific Styles */
+#puzzle1 input[type="text"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 80%;
+    font-size: 16px;
+}
+
+#puzzle1 button {
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#puzzle1 button:hover {
+    background-color: #27ae60;
+}
+
+/* Puzzle 2 Specific Styles */
+#puzzle2 .number-button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#puzzle2 .number-button:hover {
+    background-color: #2980b9;
+}
+
+#puzzle2-message {
+    margin-top: 10px;
+    color: yellow;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Puzzle 3 Specific Styles */
+#puzzle3 .color-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#puzzle3 .color-button {
+    font-size: 1.2em;
+    padding: 0.5em 1em;
+    margin: 0.5em;
+    cursor: pointer;
+}
+
+#puzzle3 #puzzle3-message {
+    margin-top: 10px;
+    color: yellow;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Puzzle 4 Specific Styles */
+.number-pad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.number-button {
+    font-size: 1.2em;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+.puzzle4-message {
+    margin-top: 10px;
+    color: yellow;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Additional styles for note-container */
+.note-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.note-content {
+    display: none; /* Hide notes by default */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.note-content .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.note-content img {
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+.note-content p {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+.note-content h3 {
+    color: red;
+    font-size: 16px;
+    text-align: center;
+}
+
+#timer {
+    position: fixed;
+    top: 10px;
+    right: 50%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+}

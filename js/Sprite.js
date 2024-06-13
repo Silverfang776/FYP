@@ -1,5 +1,5 @@
 class Sprite {
-    constructor({ position, imageSrc, frameRate = 1, animations, frameBuffer = 28, loop = true, autoplay = true, onInteract = null }) {
+    constructor({ position, imageSrc, frameRate = 1, animations, frameBuffer = 28, loop = true, autoplay = true, onInteract = null, onHover = null,visible=true }) {
         this.position = position;
         this.image = new Image();
         this.image.onload = () => {
@@ -16,7 +16,9 @@ class Sprite {
         this.animations = animations;
         this.loop = loop;
         this.autoplay = autoplay;
+        this.visible=visible
         this.onInteract = onInteract; // Initialize onInteract
+        this.onHover = onHover; // Initialize onHover
         this.currentAnimation = null;
 
         if (this.animations) {
@@ -29,6 +31,7 @@ class Sprite {
     }
 
     draw() {
+        if (!this.visible) return;
         if (!this.loaded) return;
         const cropbox = {
             position: {
@@ -71,5 +74,4 @@ class Sprite {
             }
         }
     }
-
 }
